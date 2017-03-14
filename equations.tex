@@ -1,0 +1,49 @@
+\newcommand{\ZZ}{\mathbb{Z}} % The Integers
+\newcommand{\vspan}{\text{span}} % the span of vectors
+
+
+
+Consider the general Schidmt decomposition for bipartite system:
+$$
+\cos\theta \ket{\alpha_0} \ket{\beta_0} + 
+\sin\theta \ket{\alpha_1} \ket{\beta_1}
+$$
+Following convention, the Schidmt coefficients are non-decreasing: so $\theta \in [0, \pi/4)$. Clearly, $\theta = 0$ corresponds to zero entanglement, while $\theta = \pi/4$ corresponds to maximal entanglement.
+
+\todo[inline]{add a plot of the entanglement entropy vs $\theta$}
+
+We demand that the entanglement occur only pairwise, and that each pair be entangled to the same degree. Since entanglement entropy is a non-decreasing function of $\theta$, each pair must therefore have the same Schmidt coefficients, although they may have different Schmidt vectors. 
+
+Therefore, the Schmidt decomposition of the $i^{\text{th}}$ pair is:  
+$$
+\cos\theta \ket{\alpha_0(i)} \ket{\beta_0(i)} + 
+\sin\theta \ket{\alpha_1(i)} \ket{\beta_1(i)}
+$$
+
+And the total state of the system is:
+\begin{align}
+	\ket{\psi} &= \bigotimes_{i=1}^n \left( 
+	\cos\theta \ket{\alpha_0(i)} \ket{\beta_0(i)} + 
+	\sin\theta \ket{\alpha_1(i)} \ket{\beta_1(i)} \right) \\
+	&= \sum_{k=0}^n \cos^{n-k}\theta \sin^k\theta
+	\sum_{x \in H(k)} \bigotimes_{j=1}^n 
+	\ket{\alpha_{x_j}(i)} \ket{\beta_{x_j}(i)} \\
+	&=  \sum_{k=0}^n \cos^{n-k}\theta \sin^k\theta
+	\sum_{x \in H(k)} \ket{\phi_x}
+\end{align}
+
+Where 
+\begin{align}
+	H(k) = \left\{ x \in \ZZ_2^n : \text{the Hamming Weight of x is k}
+	\right\}
+\end{align}
+
+And since $ \braket{\alpha_j(i)}{\alpha_k(i)} = \braket{\beta_j(i)}{\beta_k(i)} = \delta_{jk} $, we have that $\braket{\phi_x}{\phi_y} = \delta_{xy}$. And therefore $V_k = \vspan(\ket{\phi_x} : x \in H(k))$ is a subspace of the full Hilbert space with dimension $\binom{n}{k}$, and furthermore the $V_k$ are orthonogonal to each other.
+
+Let Alice perform a Von Neumann measurement that projects the state into one of these $V_k$ subspaces. That is, let alice to measure the observable $A_H$.
+
+\begin{align}
+	A_H = \sum_{k=0}^n k \left( \sum_{x \in H(k)}  \dyad{\phi_x}{\phi_x} \right) 
+\end{align}
+
+Alice can commicate her result to Bob over a classical channel, or she can just let Bob perform his own $A_H$ measurement: by virtue of the entanglement they're results will always agree.
