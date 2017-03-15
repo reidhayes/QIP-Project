@@ -1,8 +1,7 @@
 \newcommand{\ZZ}{\mathbb{Z}} % The Integers
 \newcommand{\vspan}{\text{span}} % the span of vectors
-
-
-
+%
+%
 Consider the general Schmidt decomposition for bipartite system:
 $$
 \cos\theta \ket{\alpha_0} \ket{\beta_0} + 
@@ -52,10 +51,9 @@ Therefore $V_k = \vspan(\ket{\phi_x} : x \in H(k))$ is a subspace of the full Hi
 Furthermore the $V_k$ are orthogonal to each other.
 
 Let Alice perform a von Neumann measurement that projects the state into one of these $V_k$ subspaces. That is, let Alice to measure the observable $A_H$
-
-\begin{align}
-	A_H = \sum_{k=0}^n k \left( \sum_{x \in H(k)}  \dyad{\phi_x}{\phi_x} \right) 
-\end{align}
+$$
+A_H = \sum_{k=0}^n k \left( \sum_{x \in H(k)}  \dyad{\phi_x}{\phi_x} \right) 
+$$
 
 Alice can communicate her result to Bob over a classical channel, or she can just let Bob perform his own $A_H$ measurement: by virtue of the entanglement their results will always agree.
 
