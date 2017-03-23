@@ -1,28 +1,35 @@
-Bennett et al.'s strategy for converting the for converting a maximally entangled $\binom{n}{k}$ state system into component $2$ state maximally entangled systems is to repeat the procedure of the previous section, combinatorially increasing the dimensionality of the the subspace in which the total state is maximally entangled, until the dimension is sufficiently close to a power of $2$~\cite{bennett1996concentrating}.
+Bennett et al. briefly outlines a strategy for converting the for converting a maximally entangled $\binom{n}{k}$ state system into component $2$ state maximally entangled systems. It is to repeat the procedure of the previous section, combinatorially increasing the dimensionality of the the subspace in which the total state is maximally entangled, until the dimension is sufficiently close to a power of $2$~\cite{bennett1996concentrating}.
 Then one can project the system into a subspace with dimension $2^l$ with high probability~\cite{bennett1996concentrating}.
 The result is a maximally entangled state in a subspace of dimension $2^l$, which can be decomposed into Bell states separate local unitary operations by Alice and Bob.
 In this section we explain this procedure in detail.
 
-To begin, Let us repeat the procedure of section $m$ times. The result is a sequence of k values $\{k_1, k_2,\ldots k_m \}$, and the state
-$\ket{K}$ is maximally entangled.
+To begin, let us repeat the procedure of section~\ref{sec:concentrating} $m$ times. The result is a sequence of `k' values: $\vk = \left( k_1, k_2,\ldots k_m \right)$; and the state
+$\ket{K}$
 \begin{align}
 \ket{K} &= \bigotimes_{\mu=1}^m \ket{k_\mu} \\
 &= D_m^{-1/2} \bigotimes_{\mu=1}^m \sum_{x^\mu \in H(k_\mu)} \ket{\phi_{x^\mu}} \\
+&=  D_m^{-1/2} \sum_{x^1 \in H(k_1)} \cdots \sum_{x^m \in H(k_m)} \bigotimes_{\mu=1}^m  \ket{\phi_{x^\mu}} \\
 \label{eqn:Kstate}
-&=  D_m^{-1/2} \sum_{x^1 \in H(k_1)} \cdots \sum_{x^m \in H(k_m)} \bigotimes_{\mu=1}^m  \ket{\phi_{x^\mu}}
+&=  D_m^{-1/2} \sum_{\vx \in H(\vk)} \ket{ \xi_\vx }
 \end{align}
-Similarily to the $m=1$ construction, we treat $\ket{K}$ as a member of the $D_m^2$ dimensional subspace $W_K$
+
+Where we have defined $\ket{ \xi_\vx } = \bigotimes_{\mu=1}^m  \ket{\phi_{x^\mu}}$ and $H(\vk) = \{\vx: x^\mu \in H(k_\mu)\}$.
+Since $\braket{\phi_{x^\mu}}{\phi_{y^\mu}} = \delta_{x^\mu y^\mu}$, we know that $\braket{\xi_\vx}{\xi_\vy} = \delta_{\vx \vy}$, and that~\eqref{eqn:Kstate} is the Schmidt decomposition of $\ket{K}$.
+
+As in section~\ref{sec:concentrating}, we treat $\ket{K}$ as a member of the $D_m^2$ dimensional subspace $W_K$.
 \begin{equation}
-D_m = \prod_{\mu=1}^{m} \binom{n}{k_\mu}
+D_m = |H(\vk)| = \prod_{\mu=1}^{m} \binom{n}{k_\mu}
 \end{equation}
 \begin{equation}
 \label{eqn:Wk}
 W_K = \vspan\left(\bigotimes_{\mu=1}^m\bigotimes_{i=1}^n 
 \ket{\alpha_{x_i^\mu}(i)} \ket{\beta_{y_i^\mu}(i)}: x^\mu,y^\mu \in H(k_\mu)\right)
 \end{equation}
-Since \eqref{eqn:Kstate} is the Schmidt decomposition of $\ket{K}$, $\ket{K}$ is maximally entangled in $W_K$.
+Of course, in section~\ref{sec:concentrating}, $m$ was equal to $1$.
 
-If $D_m = 2^l$ for some integer $l$ then the appropriate unitary operator will leave us with $l$ Bell states~\cite{bennett1996concentrating}. To see this consider the unitary operators $U_A$ and $U_B$ such that
+Since~\eqref{eqn:Kstate} is the Schmidt decomposition of $\ket{K}$, we see that the Schmidt coefficients of $\ket{K}$ are uniform, and that therefore $\ket{K}$ is maximally entangled in $W_K$.
+
+Notice that if $D_m = 2^l$ for some integer $l$ then the appropriate unitary operator will leave us with $l$ Bell states~\cite{bennett1996concentrating}. To see this consider the unitary operators $U_A$ and $U_B$ such that
 \begin{align}
 U_A : \left\{
 \bigotimes_{\mu=1}^m\bigotimes_{i=1}^n 
@@ -37,7 +44,11 @@ U_B :\left\{
 \end{align}
 Then
 \begin{align}
-U_A U_B \ket{K} &= 2^{-l/2}\sum_{i=0}^{2^l-2} \ket{i}_A\ket{i}_B\\
+U_A U_B \ket{K} &= 2^{-l/2}\sum_{i=0}^{2^l-1} \ket{i}_A\ket{i}_B\\
 &= \bigotimes_{j=1}^l \frac{1}{\sqrt{2}} \left(  \ket{00} + \ket{11} \right) =
 \bigotimes_{j=1}^l \ket{\beta_{00}}
 \end{align}
+
+If $D_m \neq 2^l$, we continue increasing $m$ until $D_m \in \bigcup_{l \in \ZZ }\left[2^l, 2^l(1+\epsilon)\right)$ for some $\epsilon > 0$, which is our chosen precision. As $m$ goes to infinity the probability of $D_m$ remaining outside this set goes to zero~\cite{bennett1996concentrating}.
+Since increasing $m$ corresponding increases our yield of Bell states (indeed, slightly better than linearly), there is no harm in not meeting this criteria immediately.
+
