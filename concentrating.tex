@@ -1,0 +1,85 @@
+The first step towards creating Bell states is transforming the initial state into one that is maximally entangled in some subspace of the original Hilbert space~\cite{bennett1996concentrating}.
+Bennett et al.\ call this part of the procedure \emph{Schmidt projection} because it involves projecting the initial state unto a subspace that corresponds to a particular binomial combination of the Schmidt coefficients.
+
+We will explain this procedure in more explicit detail than originally given in the paper, and relate these subspaces to their Hamming weight on the indices of the Schmidt vectors to condense the analysis.
+
+As a warm-up before considering the initial state, consider the general Schmidt decomposition for a bipartite two-state system:
+$$
+\cos\theta \ket{\alpha_0} \ket{\beta_0} + 
+\sin\theta \ket{\alpha_1} \ket{\beta_1}
+$$
+Following convention, the Schmidt coefficients are non-decreasing: so $\theta \in [0, \pi/4)$.
+
+Recall that entanglement entropy is defined as the von Neumann entropy of either partial trace a pure state density matrix.
+For a state in Schmidt form, this is just the Shannon entropy of the Schmidt coefficients squared.
+Clearly then, $\theta = 0$ corresponds to zero entanglement, while $\theta = \pi/4$ corresponds to maximal entanglement.
+
+Now we move on to considering the initial state for this protocol. This state consists of $n$ pairs of two state systems: each shared between Alice and Bob. As discussed in the in the introduction, we assume that we are provided with an initial state where entanglement occurs only pairwise, and that each pair be entangled to the same degree. Since entanglement entropy is a non-decreasing function of $\theta$  (which follows from its correspondence to Shannon entropy), each pair must therefore have the same Schmidt coefficients.
+
+Therefore, under the given assumptions, the Schmidt decomposition of the $i^{\text{th}}$ pair is  
+$$
+\cos\theta \ket{\alpha_0(i)} \ket{\beta_0(i)} + 
+\sin\theta \ket{\alpha_1(i)} \ket{\beta_1(i)}
+$$
+And the total state of the system is
+\begin{align}
+	\ket{\psi} &= \bigotimes_{i=1}^n \left( 
+	\cos\theta \ket{\alpha_0(i)} \ket{\beta_0(i)} + 
+	\sin\theta \ket{\alpha_1(i)} \ket{\beta_1(i)} \right) \\
+	%
+	&= \sum_{k=0}^n \cos^{n-k}\theta \sin^k\theta
+	\sum_{x \in H(k)} \bigotimes_{i=1}^n 
+	\ket{\alpha_{x_i}(i)} \ket{\beta_{x_i}(i)} \\
+	%
+	&=  \sum_{k=0}^n \cos^{n-k}\theta \sin^k\theta
+	\sum_{x \in H(k)} \ket{\phi_x}
+\end{align}
+
+Where 
+$$
+H(k) = \left\{ 
+x \in \ZZ_2^n : \text{the Hamming Weight of $x$ is $k$} 
+\right\}
+$$
+and
+$$
+\ket{\phi_x} = \bigotimes_{i=1}^n 
+\ket{\alpha_{x_i}(i)} \ket{\beta_{x_i}(i)}
+$$
+In these steps, we have simply expanded the product and grouped by coefficients. In doing so we have realized that each coefficient corresponds to vectors of a particular Hamming weight if we make the correspondence between states such as
+$$\ket{\alpha_1(1)} \ket{\beta_1(1)} \ket{\alpha_0(2)} \ket{\beta_0(2)} \ket{\alpha_0(3)} \ket{\beta_0(3)} \ket{\alpha_1(4)} \ket{\beta_1(4)}$$
+and the binary string $x = 1001 = 9$ for example.
+
+Since we have used the Schmidt decomposition $ \braket{\alpha_j(i)}{\alpha_k(i)} = \braket{\beta_j(i)}{\beta_k(i)} = \delta_{jk} $, and therefore $\braket{\phi_x}{\phi_y} = \delta_{xy}$.
+This is useful, because it means that $V_k = \vspan(\ket{\phi_x} : x \in H(k))$ is a subspace of the full Hilbert space with dimension $|H(k)| = \binom{n}{k}$, and furthermore that $V_k$ and $V_{k'}$ ($k\neq k'$) are orthogonal subspace.
+Since they are orthogonal subspaces, a projective measurement may be performed that projects the system into exactly one of them.
+
+Taking advantage of this, let Alice perform a von Neumann measurement that projects the state into one of these $V_k$ subspaces. That is, let Alice to measure the observable $A_H$
+$$
+A_H = \sum_{k=0}^n k \left( \sum_{x \in H(k)}  \dyad{\phi_x}{\phi_x} \right) 
+$$
+
+The resulting state is
+\begin{equation}
+\label{eqn:kstate}
+\ket{k} = \binom{n}{k}^{-1/2} \sum_{x \in H(k)} \ket{\phi_x}
+\end{equation}
+
+And it occurs with probability
+$$
+p_k = \binom{n}{k} \cos^{2(n-k)}\theta \sin^{2k}\theta
+$$
+Which is the familiar binomial distribution with $(n=n, p=\sin^2\theta)$.
+
+For further use in the protocol described in section~\ref{sec:standardizing}, Alice can communicate her result (k) to Bob over a classical channel, or she can let Bob perform his own $A_H$ measurement: by virtue of the entanglement their results will always agree. It suffices to say that both Alice and Bob have access to this information, and that there is no reason to keep it as a secret.
+
+This resulting state, $\ket{k}$,  is a maximally entangled state in the $\binom{n}{k}^2$ dimensional subspace 
+$$\vspan\left(\bigotimes_{i=1}^n 
+\ket{\alpha_{x_i}(i)} \ket{\beta_{y_i}(i)}: x,y \in H(k)\right)
+$$
+This is clear because the Schmidt coefficients \eqref{eqn:kstate} are uniform (recall that the entanglement entropy is the Shannon entropy of the Schmidt coefficients squared).
+
+Using unitary operations, this state can be converted into any maximally entangled state between what are now considered to be $\binom{n}{k}$ state systems.
+This is of little use in implementing conventional quantum algorithms and communication protocols however, since these are most often formulated in terms of maximally entangled $2$ systems, i.e.\ Bell states.
+
+Therefore for this procedure to be useful, we need a way of converting this maximally entangled $\binom{n}{k}$ state pair of systems into many maximally entangled two state systems. This is the subject of the following section.

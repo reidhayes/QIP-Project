@@ -12,53 +12,30 @@
 \usepackage[backend=bibtex]{biblatex}
 \addbibresource{bib.bib}
 
+\newcommand{\ZZ}{\mathbb{Z}} % The Integers
+\newcommand{\vspan}{\text{span}} % the span of vectors
+
 \author{Reid Hayes 20457389}
 \title{Concentrating Partial Entanglement by Local Operations}
 \begin{document}
 \maketitle
 \section{Abstract}
 \section{Introduction}
-Quantum teleportation and superdense coding both presuppose that Alice and Bob share a maximally entangled qubit~\cite{barrett2004teleportation, bennett1992superdense}. 
-This requirement was an an initial blow to hopes of using these protocols for communication.
-Bennett admits in the 1992 paper that introduced superdense coding that
+% What is the problem being solved, why is it interesting, what was known before
+% what has been achieved, outline the the rest of the report
+\input{introduction.tex}
 
-\hyphenblockcquote{UKenglish}{bennett1992superdense}{
-The communication of two bits via two particles, one of which remains fixed while the other makes a round trip, is no more efficient in number of particles or number of transmissions than the obvious scheme of directly encoding each bit in one transmitted particle.
-}
-
-Bennett went on the argue that there is still one advantage of superdense coding: the Bell states may be sent during `off-peak' hours, before the message has been prepared~\cite{bennett1992superdense}.
-
-There is there is hope of doing even better.
-Although entanglement is a precious resource for anyone hoping to build a quantum computer or channel, nature has an over-abundance of it. 
-Any two systems that share a causal history, and are capable of interacting almost certainly share some small degree of entanglement.
-This is what gives rise to the high dimensionality that makes quantum systems notoriously difficult to simulate and what inspired pioneers like Richard Feynman to first propose quantum computing~\cite{feynman1982simulating}.
-This natural entanglement could is principle be harnessed for quantum communication.
-
-Any progress towards creating maximally entangled qubits from less idealized entangled states would be a step in this direction.
-This would also open up the possibility of sending Bell states over lower fidelity channels.
-
-In the report, we review the progress made by Bennett et al.\ to solve this problem.
-They detail a procedure for converting a collection of partially entangled pairs into maximally entangled qubits~\cite{bennett1996concentrating}.
-Their procedure uses only local operations carried out by only one of the parties, say Alice~\cite{bennett1996concentrating}. Therefore the two systems may remain spacelike separated for the duration of the procedure.
-This further implies that expected entanglement entropy of the combined system is conserved, since Alice's operation's cannot change Bob's density matrix without superluminal signalling~\cite{bennett1996concentrating}. Conserving entanglement entropy throughout the procedure means that no entanglement goes to waste.
-
-Bennett et al.'s method is not the final world in extracting useful entanglement from our messy real world.
-It has shortcomings, which mean that, at least for now, cheap entanglement is still illusive. To enumerate them:
-\begin{enumerate}
-	\item It assumes that the initial state, from which we concentrate and distill Bell states, possesses only pairwise entanglement. That is, that there is no tripartite or higher order entanglement.
-	\item It assumes that all pairs are equally entangled. That is, the entanglement entropy of every entangled pair is the same. For two state systems, this is equivalent to every pair having the same Schmidt coefficients.
-	\item It assumes detailed knowledge of the initial state, which must be used to decide which measurements and unitary operations should be applied throughout the procedure. 
-\end{enumerate}
-
-For certain physical systems these assumptions may hold. 
-For example with entanglement formed by ions interacting in a highly symmetric crystal lattice, whose ground-state is well known.
-It is more likely however, that this procedure would be applied to using low fidelity channels to transmit Bell states.
-Since the message, not initial the character of the entangled states, is of cryptographic importance, Alice and Bob could communicate over unsecured classical channels and perform projective measurements until they were confident that their shared state satisfied all these assumptions.
-
-\section{Stage 1: Concentrating Entanglement}
+% The Body: Explain the Paper
+\section{The Entanglement Concentration and \\Standardization Protocol}
+\subsection{Concentrating Entanglement}
+\label{sec:concentrating}
+\input{concentrating.tex}
 % the first step in the proceedure, get a maximally entangled
 % state in a n choose k dimensional subspace
-\section{Stage 2: Standardizing to Spin Singlets}
+
+\subsection{Standardizing to Spin Singlets}
+\label{sec:standardizing}
+\input{standardizing.tex}
 % creating a spin singlets from the maximally entangled state that
 % results from step 1
 

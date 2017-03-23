@@ -1,0 +1,43 @@
+Bennett et al.'s strategy for converting the for converting a maximally entangled $\binom{n}{k}$ state system into component $2$ state maximally entangled systems is to repeat the procedure of the previous section, combinatorially increasing the dimensionality of the the subspace in which the total state is maximally entangled, until the dimension is sufficiently close to a power of $2$~\cite{bennett1996concentrating}.
+Then one can project the system into a subspace with dimension $2^l$ with high probability~\cite{bennett1996concentrating}.
+The result is a maximally entangled state in a subspace of dimension $2^l$, which can be decomposed into Bell states separate local unitary operations by Alice and Bob.
+In this section we explain this procedure in detail.
+
+To begin, Let us repeat the procedure of section $m$ times. The result is a sequence of k values $\{k_1, k_2,\ldots k_m \}$, and the state
+$\ket{K}$ is maximally entangled.
+\begin{align}
+\ket{K} &= \bigotimes_{\mu=1}^m \ket{k_\mu} \\
+&= D_m^{-1/2} \bigotimes_{\mu=1}^m \sum_{x^\mu \in H(k_\mu)} \ket{\phi_{x^\mu}} \\
+\label{eqn:Kstate}
+&=  D_m^{-1/2} \sum_{x^1 \in H(k_1)} \cdots \sum_{x^m \in H(k_m)} \bigotimes_{\mu=1}^m  \ket{\phi_{x^\mu}}
+\end{align}
+Similarily to the $m=1$ construction, we treat $\ket{K}$ as a member of the $D_m^2$ dimensional subspace $W_K$
+\begin{equation}
+D_m = \prod_{\mu=1}^{m} \binom{n}{k_\mu}
+\end{equation}
+\begin{equation}
+\label{eqn:Wk}
+W_K = \vspan\left(\bigotimes_{\mu=1}^m\bigotimes_{i=1}^n 
+\ket{\alpha_{x_i^\mu}(i)} \ket{\beta_{y_i^\mu}(i)}: x^\mu,y^\mu \in H(k_\mu)\right)
+\end{equation}
+Since \eqref{eqn:Kstate} is the Schmidt decomposition of $\ket{K}$, $\ket{K}$ is maximally entangled in $W_K$.
+
+If $D_m = 2^l$ for some integer $l$ then the appropriate unitary operator will leave us with $l$ Bell states~\cite{bennett1996concentrating}. To see this consider the unitary operators $U_A$ and $U_B$ such that
+\begin{align}
+U_A : \left\{
+\bigotimes_{\mu=1}^m\bigotimes_{i=1}^n 
+\ket{\alpha_{x_i^\mu}(i)}: x^\mu \in H(k_\mu) 
+\right\} &\rightarrow \{\ket{0}, \ldots \ket{2^l-1
+}\} \\
+U_B :\left\{
+\bigotimes_{\mu=1}^m\bigotimes_{i=1}^n 
+\ket{\beta_{x_i^\mu}(i)}: x^\mu \in H(k_\mu) 
+\right\} &\rightarrow \{\ket{0}, \ldots \ket{2^l-1
+}\}
+\end{align}
+Then
+\begin{align}
+U_A U_B \ket{K} &= 2^{-l/2}\sum_{i=0}^{2^l-2} \ket{i}_A\ket{i}_B\\
+&= \bigotimes_{j=1}^l \frac{1}{\sqrt{2}} \left(  \ket{00} + \ket{11} \right) =
+\bigotimes_{j=1}^l \ket{\beta_{00}}
+\end{align}
