@@ -7,6 +7,10 @@
 \usepackage{physics}
 \usepackage{todonotes}
 \usepackage{enumitem}
+\usepackage{csquotes}
+
+\usepackage[backend=bibtex]{biblatex}
+\addbibresource{bib.bib}
 
 \author{Reid Hayes 20457389}
 \title{Concentrating Partial Entanglement by Local Operations}
@@ -14,10 +18,15 @@
 \maketitle
 \section{Abstract}
 \section{Introduction}
-Quantum teleportation and superdense both coding presuppose that Alice and Bob share a maximally entangled qubit. 
-This was an initial blow to hopes of using these protocols for communication.
-For superdense coding especially, this could have been a fatal flaw.
-Snail mailing halves of decohering Bell states --- just to half classical bandwidth --- is absurd.
+Quantum teleportation and superdense coding both presuppose that Alice and Bob share a maximally entangled qubit~\cite{barrett2004teleportation, bennett1992superdense}. 
+This requirement was an an initial blow to hopes of using these protocols for communication.
+Bennett admits in the 1992 paper that introduced superdense coding that
+
+\hyphenblockcquote{UKenglish}{bennett1992superdense}{
+The communication of two bits via two particles, one of which remains fixed while the other makes a round trip, is no more efficient in number of particles or number of transmissions than the obvious scheme of directly encoding each bit in one transmitted particle
+}
+
+Bennett goes on to argue that there may still be situations where superdense coding has an advantage. in that the Bell states may be sent before the message has been prepared
 
 There is hope however in this: although entanglement is a precious resource for anyone hoping to build a quantum computer or channel, nature has an over-abundance of it. 
 Any two systems that share a causal history, and are capable of interacting almost certainly share some small degree of entanglement.
@@ -55,4 +64,5 @@ The extent to which we may harvest nature's bounty of entanglement remains an op
 
 \section{Equations}
 \input{equations.tex}
+\printbibliography
 \end{document}
