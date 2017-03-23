@@ -23,37 +23,37 @@ This requirement was an an initial blow to hopes of using these protocols for co
 Bennett admits in the 1992 paper that introduced superdense coding that
 
 \hyphenblockcquote{UKenglish}{bennett1992superdense}{
-The communication of two bits via two particles, one of which remains fixed while the other makes a round trip, is no more efficient in number of particles or number of transmissions than the obvious scheme of directly encoding each bit in one transmitted particle
+The communication of two bits via two particles, one of which remains fixed while the other makes a round trip, is no more efficient in number of particles or number of transmissions than the obvious scheme of directly encoding each bit in one transmitted particle.
 }
 
-Bennett goes on to argue that there may still be situations where superdense coding has an advantage. in that the Bell states may be sent before the message has been prepared
+Bennett went on the argue that there is still one advantage of superdense coding: the Bell states may be sent during `off-peak' hours, before the message has been prepared~\cite{bennett1992superdense}.
 
-There is hope however in this: although entanglement is a precious resource for anyone hoping to build a quantum computer or channel, nature has an over-abundance of it. 
+There is there is hope of doing even better.
+Although entanglement is a precious resource for anyone hoping to build a quantum computer or channel, nature has an over-abundance of it. 
 Any two systems that share a causal history, and are capable of interacting almost certainly share some small degree of entanglement.
-This gives rise to the high dimensionality that makes quantum systems notoriously difficult to simulate classically.
-It is fitting that we find the solution to our problem in the exact same phenomenon that inspired pioneers like Richard Feynman to first propose quantum computing.
+This is what gives rise to the high dimensionality that makes quantum systems notoriously difficult to simulate and what inspired pioneers like Richard Feynman to first propose quantum computing~\cite{feynman1982simulating}.
+This natural entanglement could is principle be harnessed for quantum communication.
 
-The problem however, is that nature is rarely kind enough to provide you with this entanglement in the form of maximally entangled Bell states.
-The subsystems may be only partially entangled and the entanglement may not be monogamous.
+Any progress towards creating maximally entangled qubits from less idealized entangled states would be a step in this direction.
+This would also open up the possibility of sending Bell states over lower fidelity channels.
 
 In the report, we review the progress made by Bennett et al.\ to solve this problem.
-They detail a procedure for converting a collection of partially entangled pairs into maximally entangled qubits.
-Their procedure uses only local operations carried out by only one of the parties, say Alice. Therefore the two systems may remain spacelike separated for the duration of the procedure.
-This further implies that expected entanglement entropy of the combined system is conserved, since Alice's operation's cannot change Bob's density matrix without superluminal signalling. Conserving entanglement entropy throughout the procedure means that no entanglement goes to waste.
+They detail a procedure for converting a collection of partially entangled pairs into maximally entangled qubits~\cite{bennett1996concentrating}.
+Their procedure uses only local operations carried out by only one of the parties, say Alice~\cite{bennett1996concentrating}. Therefore the two systems may remain spacelike separated for the duration of the procedure.
+This further implies that expected entanglement entropy of the combined system is conserved, since Alice's operation's cannot change Bob's density matrix without superluminal signalling~\cite{bennett1996concentrating}. Conserving entanglement entropy throughout the procedure means that no entanglement goes to waste.
 
 Bennett et al.'s method is not the final world in extracting useful entanglement from our messy real world.
 It has shortcomings, which mean that, at least for now, cheap entanglement is still illusive. To enumerate them:
 \begin{enumerate}
-	\item It assumes that the initial state, from which with concentrate and distill Bell states, posses only pairwise entanglement. That is, that there is no tripartite or higher order entanglement.
+	\item It assumes that the initial state, from which we concentrate and distill Bell states, possesses only pairwise entanglement. That is, that there is no tripartite or higher order entanglement.
 	\item It assumes that all pairs are equally entangled. That is, the entanglement entropy of every entangled pair is the same. For two state systems, this is equivalent to every pair having the same Schmidt coefficients.
 	\item It assumes detailed knowledge of the initial state, which must be used to decide which measurements and unitary operations should be applied throughout the procedure. 
-\end{enumerate} 
+\end{enumerate}
 
-For certain physical systems these assumptions may hold. In particular, entanglement formed by ions interacting in a highly symmetric crystal lattice, whose ground-state is well known, would be a good candidate for this procedure.
-
-But these assumptions preclude us from using this method to render useful entanglement from complex systems like the electromagnetic field.
-The extent to which we may harvest nature's bounty of entanglement remains an open question.
-
+For certain physical systems these assumptions may hold. 
+For example with entanglement formed by ions interacting in a highly symmetric crystal lattice, whose ground-state is well known.
+It is more likely however, that this procedure would be applied to using low fidelity channels to transmit Bell states.
+Since the message, not initial the character of the entangled states, is of cryptographic importance, Alice and Bob could communicate over unsecured classical channels and perform projective measurements until they were confident that their shared state satisfied all these assumptions.
 
 \section{Stage 1: Concentrating Entanglement}
 % the first step in the proceedure, get a maximally entangled

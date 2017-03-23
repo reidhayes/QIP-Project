@@ -66,6 +66,7 @@ And it occurs with probability
 $$
 p_k = \binom{n}{k} \cos^{2(n-k)}\theta \sin^{2k}\theta
 $$
+Which is the familiar binomial distribution with $(n=n, p=\sin^2\theta)$.
 
 $\ket{k}$ is a maximally entangled state in the $\binom{n}{k}^2$ dimensional subspace 
 $$\vspan\left(\bigotimes_{i=1}^n 
@@ -93,21 +94,25 @@ W_K = \vspan\left(\bigotimes_{\mu=1}^m\bigotimes_{i=1}^n
 \end{equation}
 Since \eqref{eqn:Kstate} is the Schmidt decomposition of $\ket{K}$, $\ket{K}$ is maximally entangled in $W_K$.
 
-If $D_m = 2^l$ for some integer $l$ then we are done. To see this we label the basis vectors numerically
+If $D_m = 2^l$ for some integer $l$ then the appropriate unitary operator will leave us with $l$ Bell states~\cite{bennett1996concentrating}. To see this consider the unitary operators $U_A$ and $U_B$ such that
 \begin{align}
-\left\{
+U_A : \left\{
 \bigotimes_{\mu=1}^m\bigotimes_{i=1}^n 
 \ket{\alpha_{x_i^\mu}(i)}: x^\mu \in H(k_\mu) 
-\right\} &= \{a_1, \ldots a_{2^l}\} \\
-\left\{
+\right\} &\rightarrow \{\ket{0}, \ldots \ket{2^l-1
+}\} \\
+U_B :\left\{
 \bigotimes_{\mu=1}^m\bigotimes_{i=1}^n 
 \ket{\beta_{x_i^\mu}(i)}: x^\mu \in H(k_\mu) 
-\right\} &= \{b_1, \ldots b_{2^l}\} 
+\right\} &\rightarrow \{\ket{0}, \ldots \ket{2^l-1
+}\}
 \end{align}
-and reorder the product states so that all the states belonging to Alice are on the right and all the states belonging to Bob are on the left. Then
-\begin{equation}
-	\ket{K} = 2^{-l/2}\sum_{i=1}^{2^l} \ket{a_i}\ket{b_i}
-\end{equation}
+Then
+\begin{align}
+	U_A U_B \ket{K} &= 2^{-l/2}\sum_{i=0}^{2^l-2} \ket{i}_A\ket{i}_B\\
+	&= \bigotimes_{j=1}^l \left( \frac{1}{\sqrt{2}} \ket{00} + \ket{11} \right) =
+	 \bigotimes_{j=1}^l \ket{\beta_{00}}
+\end{align}
 
 
 \subsection{Entropy}
