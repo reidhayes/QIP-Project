@@ -6,16 +6,53 @@
 \usepackage{graphicx}
 \usepackage{physics}
 \usepackage{todonotes}
+\usepackage{enumitem}
+
 \author{Reid Hayes 20457389}
 \title{Concentrating Partial Entanglement by Local Operations}
 \begin{document}
 \maketitle
+\section{Abstract}
+\section{Introduction}
+Quantum teleportation and superdense both coding presuppose that Alice and Bob share a maximally entangled qubit. 
+This was an initial blow to hopes of using these protocols for communication.
+For superdense coding especially, this could have been a fatal flaw.
+Snail mailing halves of decohering Bell states --- just to half classical bandwidth --- is absurd.
+
+There is hope however in this: although entanglement is a precious resource for anyone hoping to build a quantum computer or channel, nature has an over-abundance of it. 
+Any two systems that share a causal history, and are capable of interacting almost certainly share some small degree of entanglement.
+This gives rise to the high dimensionality that makes quantum systems notoriously difficult to simulate classically.
+It is fitting that we find the solution to our problem in the exact same phenomenon that inspired pioneers like Richard Feynman to first propose quantum computing.
+
+The problem however, is that nature is rarely kind enough to provide you with this entanglement in the form of maximally entangled Bell states.
+The subsystems may be only partially entangled and the entanglement may not be monogamous.
+
+In the report, we review the progress made by Bennett et al.\ to solve this problem.
+They detail a procedure for converting a collection of partially entangled pairs into maximally entangled qubits.
+Their procedure uses only local operations carried out by only one of the parties, say Alice. Therefore the two systems may remain spacelike separated for the duration of the procedure.
+This further implies that expected entanglement entropy of the combined system is conserved, since Alice's operation's cannot change Bob's density matrix without superluminal signalling. Conserving entanglement entropy throughout the procedure means that no entanglement goes to waste.
+
+Bennett et al.'s method is not the final world in extracting useful entanglement from our messy real world.
+It has shortcomings, which mean that, at least for now, cheap entanglement is still illusive. To enumerate them:
+\begin{enumerate}
+	\item It assumes that the initial state, from which with concentrate and distill Bell states, posses only pairwise entanglement. That is, that there is no tripartite or higher order entanglement.
+	\item It assumes that all pairs are equally entangled. That is, the entanglement entropy of every entangled pair is the same. For two state systems, this is equivalent to every pair having the same Schmidt coefficients.
+	\item It assumes detailed knowledge of the initial state, which must be used to decide which measurements and unitary operations should be applied throughout the procedure. 
+\end{enumerate} 
+
+For certain physical systems these assumptions may hold. In particular, entanglement formed by ions interacting in a highly symmetric crystal lattice, whose ground-state is well known, would be a good candidate for this procedure.
+
+But these assumptions preclude us from using this method to render useful entanglement from complex systems like the electromagnetic field.
+The extent to which we may harvest nature's bounty of entanglement remains an open question.
+
+
 \section{Stage 1: Concentrating Entanglement}
 % the first step in the proceedure, get a maximally entangled
 % state in a n choose k dimensional subspace
 \section{Stage 2: Standardizing to Spin Singlets}
 % creating a spin singlets from the maximally entangled state that
 % results from step 1
+
 \section{Equations}
 \input{equations.tex}
 \end{document}
