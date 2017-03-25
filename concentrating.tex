@@ -66,10 +66,12 @@ The resulting state is
 \end{equation}
 
 And it occurs with probability
-$$
+\begin{equation}
+\label{eqn:pk}
 p_k = \binom{n}{k} \cos^{2(n-k)}\theta \sin^{2k}\theta
-$$
-Which is the familiar binomial distribution with $(n=n, p=\sin^2\theta)$.
+\end{equation}
+
+Which is the familiar binomial distribution $B(n=n, p=\sin^2\theta)$.
 
 For further use in the protocol described in section~\ref{sec:standardizing}, Alice can communicate her result (k) to Bob over a classical channel, or she can let Bob perform his own $A_H$ measurement: by virtue of the entanglement their results will always agree. It suffices to say that both Alice and Bob have access to this information, and that there is no reason to keep it as a secret.
 
