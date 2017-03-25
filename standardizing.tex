@@ -44,8 +44,8 @@ U_B :\left\{
 Then
 \begin{align*}
 U_A U_B \ket{K} &= 2^{-l/2}\sum_{i=0}^{2^l-1} \ket{i}_A\ket{i}_B\\
-&= \bigotimes_{j=1}^l \frac{1}{\sqrt{2}} \left(  \ket{00} + \ket{11} \right) =
-\bigotimes_{j=1}^l \ket{\beta_{00}}
+&= \bigotimes_{j=1}^l \frac{1}{\sqrt{2}} \left(  \ket{0}_A \ket{0}_B + \ket{1}_A \ket{1}_B \right) \\
+&= \bigotimes_{j=1}^l \ket{\beta_{00}}
 \end{align*}
 
 If $D_m \neq 2^l$, we continue increasing $m$ until $D_m \in \bigcup_{l \in \ZZ }\left[2^l, 2^l(1+\epsilon)\right)$ for some $\epsilon > 0$, which is our chosen precision. As $m$ goes to increases the probability of $D_m$ remaining outside this set goes to zero~\cite{bennett1996concentrating}.

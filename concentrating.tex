@@ -1,7 +1,8 @@
 The first step towards creating Bell states is transforming the initial state into one that is maximally entangled in some subspace of the original Hilbert space~\cite{bennett1996concentrating}.
-Bennett et al.\ call this part of the procedure \emph{Schmidt projection} because it involves projecting the initial state unto a subspace that corresponds to a particular binomial combination of the Schmidt coefficients.
+Bennett et al.\ call this part of the procedure \emph{Schmidt projection} because it involves projecting the initial state into a subspace that corresponds to a particular binomial combination of the Schmidt coefficients.
 
-We will explain this procedure in more explicit detail than originally given in the paper, and relate these subspaces to their Hamming weight on the indices of the Schmidt vectors to condense the analysis.
+We will explain this procedure in more explicit detail than originally given in the paper: relating these subspaces a Hamming weight over the indices of the Schmidt vectors. 
+This perspective gives a more detailed and clear picture of how the Bennett et al.'s method works.
 
 As a warm-up before considering the initial state, consider the general Schmidt decomposition for a bipartite two-state system:
 $$
@@ -10,11 +11,11 @@ $$
 $$
 Following convention, the Schmidt coefficients are non-decreasing: so $\theta \in [0, \pi/4)$.
 
-Recall that entanglement entropy is defined as the von Neumann entropy of either partial trace a pure state density matrix.
+Recall that entanglement entropy is defined as the von Neumann entropy of the (either Alice's or Bob's) partial trace of a pure state density matrix.
 For a state in Schmidt form, this is just the Shannon entropy of the Schmidt coefficients squared.
 Clearly then, $\theta = 0$ corresponds to zero entanglement, while $\theta = \pi/4$ corresponds to maximal entanglement.
 
-Now we move on to considering the initial state for this protocol. This state consists of $n$ pairs of two state systems: each shared between Alice and Bob. As discussed in the in the introduction, we assume that we are provided with an initial state where entanglement occurs only pairwise, and that each pair be entangled to the same degree. Since entanglement entropy is a non-decreasing function of $\theta$  (which follows from its correspondence to Shannon entropy), each pair must therefore have the same Schmidt coefficients.
+Now we move on to considering the initial state provided for this protocol. This state consists of $n$ pairs of two state systems: each shared between Alice and Bob. As discussed in the in the introduction, we assume that we are provided with an initial state where entanglement occurs only pairwise, and that each pair be entangled to the same degree. Since entanglement entropy is a non-decreasing function of $\theta$  (which follows from its correspondence to Shannon entropy), each pair must therefore have the same Schmidt coefficients.
 
 Therefore, under the given assumptions, the Schmidt decomposition of the $i^{\text{th}}$ pair is  
 $$
