@@ -1,4 +1,4 @@
-The first step towards creating Bell states is transforming the initial state into one that is maximally entangled in some subspace of the original Hilbert space~\cite{bennett1996concentrating}.
+The first step towards creating Bell states is transforming the initial state into a state that is maximally entangled in some subspace of the original Hilbert space~\cite{bennett1996concentrating}.
 Bennett et al.\ call this part of the procedure \emph{Schmidt projection} because it involves projecting the initial state into a subspace that corresponds to a particular binomial combination of the Schmidt coefficients.
 
 We will explain this procedure in more explicit detail than originally given in the paper: relating these subspaces a Hamming weight over the indices of the Schmidt vectors. 
@@ -52,7 +52,7 @@ $$\ket{\alpha_1(1)} \ket{\beta_1(1)} \ket{\alpha_0(2)} \ket{\beta_0(2)} \ket{\al
 and the binary string $x = 1001 = 9$ for example.
 
 Since we have used the Schmidt decomposition $ \braket{\alpha_j(i)}{\alpha_k(i)} = \braket{\beta_j(i)}{\beta_k(i)} = \delta_{jk} $, and therefore $\braket{\phi_x}{\phi_y} = \delta_{xy}$.
-This is useful, because it means that $V_k = \vspan(\ket{\phi_x} : x \in H(k))$ is a subspace of the full Hilbert space with dimension $|H(k)| = \binom{n}{k}$, and furthermore that $V_k$ and $V_{k'}$ ($k\neq k'$) are orthogonal subspace.
+This is useful, because it means that $V_k = \vspan(\ket{\phi_x} : x \in H(k))$ is a subspace of the full Hilbert space with dimension $|H(k)| = \binom{n}{k}$, and furthermore that $V_k$ and $V_{k'}$ ($k\neq k'$) are orthogonal subspaces.
 Since they are orthogonal subspaces, a projective measurement may be performed that projects the system into exactly one of them.
 
 Taking advantage of this, let Alice perform a von Neumann measurement that projects the state into one of these $V_k$ subspaces. That is, let Alice to measure the observable $A_H$
@@ -82,7 +82,7 @@ $$\vspan\left(\bigotimes_{i=1}^n
 $$
 This is clear because the Schmidt coefficients \eqref{eqn:kstate} are uniform (recall that the entanglement entropy is the Shannon entropy of the Schmidt coefficients squared).
 
-Using unitary operations, this state can be converted into any maximally entangled state between what are now considered to be $\binom{n}{k}$ state systems.
+Using unitary operations, this state can be converted into any maximally entangled state between what are now considered to be two $\binom{n}{k}$ state systems.
 This is of little use in implementing conventional quantum algorithms and communication protocols however, since these are most often formulated in terms of maximally entangled $2$ systems, i.e.\ Bell states.
 
 Therefore for this procedure to be useful, we need a way of converting this maximally entangled $\binom{n}{k}$ state pair of systems into many maximally entangled two state systems. This is the subject of the following section.

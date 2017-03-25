@@ -1,4 +1,5 @@
-Bennett et al. briefly outlines a strategy for converting the for converting a maximally entangled $\binom{n}{k}$ state system into component $2$ state maximally entangled systems. It is to repeat the procedure of the previous section, combinatorially increasing the dimensionality of the the subspace in which the total state is maximally entangled, until the dimension is sufficiently close to a power of $2$~\cite{bennett1996concentrating}.
+Bennett et al. outlines a strategy for converting the for converting a maximally entangled $\binom{n}{k}$ state system into component $2$ state maximally entangled systems. 
+In brief, it involves repeating the procedure of the previous section, combinatorially increasing the dimensionality of the the subspace in which the total state is maximally entangled, until the dimension is sufficiently close to a power of $2$~\cite{bennett1996concentrating}.
 Then one can project the system into a subspace with dimension $2^l$ with high probability~\cite{bennett1996concentrating}.
 The result is a maximally entangled state in a subspace of dimension $2^l$, which can be decomposed into Bell states separate local unitary operations by Alice and Bob.
 In this section we explain this procedure in detail.
@@ -48,16 +49,17 @@ U_A U_B \ket{K} &= 2^{-l/2}\sum_{i=0}^{2^l-1} \ket{i}_A\ket{i}_B\\
 &= \bigotimes_{j=1}^l \ket{\beta_{00}}
 \end{align*}
 
-If $D_m \neq 2^l$, we continue increasing $m$ until $D_m \in \bigcup_{l \in \ZZ }\left[2^l, 2^l(1+\epsilon)\right)$ for some $\epsilon > 0$, which is our chosen precision. As $m$ goes to increases the probability of $D_m$ remaining outside this set goes to zero~\cite{bennett1996concentrating}.
-Since increasing $m$ corresponding increases our yield of Bell states (indeed, slightly better than linearly), there is no harm in not meeting this criteria immediately.
+If $D_m \neq 2^l$, we continue increasing $m$ until $D_m \in \bigcup_{l \in \ZZ }\left[2^l, 2^l(1+\epsilon)\right)$ for some $\epsilon > 0$, which is our chosen precision. As $m$ goes to increases the probability of $D_m$ remaining outside this set goes to zero~\cite{bennett1996concentrating}. This can be seen by analysing the sequence $\{D_m\}_{m=1}^\infty$ as a random walk~\cite{bennett1996concentrating}.
+Since increasing $m$ correspondingly increases our yield of Bell states (indeed, slightly better than linearly), there is no harm in not meeting this criterion immediately.
 
-Once a suitable $m$ has been found we perform a measurement that projects the system into one of two subspaces: one of dimension $2^l$ and the other of dimension $D_m-2^l<\epsilon$. For example, we can measure the observable
+Once a suitable $m$ has been found we perform a measurement that projects the system into one of two subspaces: one of dimension $2^l$ and the other of dimension $D_m-2^l<\epsilon$. For example, Alice or Bob can measure the observable
 $$
-B_H = \sum_{\vx \in H(\vk) \setminus X} \dyad{ \xi_\vx }{ \xi_\vx } 
+B_H = \sum_{\vx \in H(\vk) \setminus X} \left(
+\bigotimes_{\mu=1}^m\bigotimes_{i=1}^n 
+\dyad{\alpha_{x_i^\mu}(i)}{\alpha_{x_i^\mu}(i)} \right)
 $$
-Where $X$ is any subset of $H(\vk)$ with cardinality $D_m - 2^l<\epsilon$.
-There is a probability of $\epsilon / D_m \ll 1
-$ that this measurement will output a $0$, and project the system into the subspace spanned by $X$. We consider this a failure. on the other hand there is a $1-\epsilon / D_m$ probability that the measurement outputs $1$, and the resulting state is
+Where $X$ is any subset of $H(\vk)$ with cardinality $D_m - 2^l$.
+There is a probability $\epsilon / D_m$ that this measurement will output a $0$, and project the system into the subspace spanned by $X$. We consider this a failure. On the other hand there is a $1-\epsilon / D_m$ probability that the measurement outputs $1$, and the resulting state is
 $$
 2^{-l/2} \sum_{\vx \in H(\vk) \setminus X} \ket{ \xi_\vx }
 $$
