@@ -52,9 +52,9 @@ U_A U_B \ket{K} &= 2^{-l/2}\sum_{i=0}^{2^l-1} \ket{i}_A\ket{i}_B\\
 If $D_m \neq 2^l$, we continue increasing $m$ until $D_m \in \bigcup_{l \in \ZZ }\left[2^l, 2^l(1+\epsilon)\right)$ for some $\epsilon > 0$, which is our chosen precision. As $m$ goes to increases the probability of $D_m$ remaining outside this set goes to zero~\cite{bennett1996concentrating}. This can be seen by analysing the sequence $\{D_m\}_{m=1}^\infty$ as a random walk~\cite{bennett1996concentrating}.
 Since increasing $m$ correspondingly increases our yield of Bell states (better than linearly) there is no harm in not meeting this criterion immediately.
 
-Once a suitable $m$ has been found we perform a measurement that projects the system into one of two subspaces: one of dimension $2^l$ and the other of dimension $D_m-2^l<\epsilon$. For example, Alice or Bob can measure the observable
+Once a suitable $m$ has been found we perform a measurement that projects the system into one of two subspaces: one of dimension $2^l$ and the other of dimension $D_m-2^l<\epsilon$. For example, Alice can measure the observable
 $$
-B_H = \sum_{\vx \in H(\vk) \setminus X} \left(
+A_G = \sum_{\vx \in H(\vk) \setminus X} \left(
 \bigotimes_{\mu=1}^m\bigotimes_{i=1}^n 
 \dyad{\alpha_{x_i^\mu}(i)}{\alpha_{x_i^\mu}(i)} \right)
 $$

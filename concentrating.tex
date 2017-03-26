@@ -57,7 +57,9 @@ Since they are orthogonal subspaces, a projective measurement may be performed t
 
 Taking advantage of this, let Alice perform a von Neumann measurement that projects the state into one of these $V_k$ subspaces. That is, let Alice to measure the observable $A_H$
 $$
-A_H = \sum_{k=0}^n k \left( \sum_{x \in H(k)}  \dyad{\phi_x}{\phi_x} \right) 
+A_H = \sum_{k=0}^n k \left( \sum_{x \in H(k)}  
+\bigotimes_{i=1}^n \dyad{\alpha_{x_i}(i)}{\alpha_{x_i}(i)}
+\right) 
 $$
 
 The resulting state is
@@ -74,7 +76,7 @@ p_k = \binom{n}{k} \cos^{2(n-k)}\theta \sin^{2k}\theta
 
 Which is the familiar binomial distribution $B(n=n, p=\sin^2\theta)$.
 
-For further use in the protocol described in section~\ref{sec:standardizing}, Alice can communicate her result (k) to Bob over a classical channel, or she can let Bob perform his own $A_H$ measurement: by virtue of the entanglement their results will always agree. It suffices to say that both Alice and Bob have access to this information, and that there is no reason to keep it as a secret.
+For further use in the protocol described in section~\ref{sec:standardizing}, Alice can communicate her result (k) to Bob over a classical channel, or she can let Bob perform his own similar measurement: by virtue of the entanglement their results will always agree. It suffices to say that both Alice and Bob have access to this information, and that there is no reason to keep it as a secret.
 
 This resulting state, $\ket{k}$,  is a maximally entangled state in the $\binom{n}{k}^2$ dimensional subspace 
 $$\vspan\left(\bigotimes_{i=1}^n 
